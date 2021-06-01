@@ -1,16 +1,24 @@
-    #include <iostream>
-    using namespace std;
-
-    int main(){
-       short n,k;
-       cin>>n>>k;
-       short r = 240-k;
-       short i = 1, count = 0;
-       while(r>=0 && i<=n){
-          r = r - (i*5);
-          if(r>=0) count++;
-          i++;
-       }  
-       cout<<count;     
-       return 0;
+	#include <bits/stdc++.h>
+	using namespace std;
+// Codeforces Round #661 (Div. 3), problem: (A) Remove Smallest
+int main() {
+    int t; cin>>t;
+    int n;
+    while(t--){
+      cin>>n;
+      int ar[n];
+      for(int i=0; i<n; i++)
+        cin>>ar[i];
+     sort(ar, ar+n);
+     bool is_possible = true;
+     for(int i=0; i<n-1; i++){
+         if(ar[i+1]-ar[i] > 1){
+             is_possible = false;
+             break;
+         }
+     }
+     if(is_possible) cout<<"YES"<<endl;
+     else cout<<"NO"<<endl;
     }
+    return  0;
+}
