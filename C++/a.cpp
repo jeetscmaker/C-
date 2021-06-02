@@ -1,18 +1,22 @@
 	#include <bits/stdc++.h>
 	using namespace std;
-// contest: Codeforces Round #667 (Div. 3), problem: (A) Yet Another Two Integers Problem
+
+	const int mod = 1e9+7;
+	
+	int mul_modulo(int a, int b, int m) {
+	 return ((a%m)*(b%m))%m;
+ }
 int main() {
-    int t; cin>>t;
-    int a, b;
-    while(t--){
-     cin>>a>>b;
-	 int diff = a<b? b-a : a-b;
-	 if(diff == 0){
-		cout<<0<<endl;
-		continue;		
-	 }
-	 int counter = ceil(diff*1.0/10);
-	 cout<<counter<<endl;
-    }
+    int n;
+	cin>>n;
+	// (a*b)%m = ((a%m)*(b%m))%m
+	int result = 1;
+	for(int i=1; i<=n; ++i){
+		result = mul_modulo(result, 2, mod);
+	}
+	cout<<mod<<endl;
+	cout<<result;
     return  0;
 }
+
+ 
