@@ -1,24 +1,18 @@
 	#include <bits/stdc++.h>
 	using namespace std;
-// Codeforces Round #661 (Div. 3), problem: (A) Remove Smallest
+// contest: Codeforces Round #667 (Div. 3), problem: (A) Yet Another Two Integers Problem
 int main() {
     int t; cin>>t;
-    int n;
+    int a, b;
     while(t--){
-      cin>>n;
-      int ar[n];
-      for(int i=0; i<n; i++)
-        cin>>ar[i];
-     sort(ar, ar+n);
-     bool is_possible = true;
-     for(int i=0; i<n-1; i++){
-         if(ar[i+1]-ar[i] > 1){
-             is_possible = false;
-             break;
-         }
-     }
-     if(is_possible) cout<<"YES"<<endl;
-     else cout<<"NO"<<endl;
+     cin>>a>>b;
+	 int diff = a<b? b-a : a-b;
+	 if(diff == 0){
+		cout<<0<<endl;
+		continue;		
+	 }
+	 int counter = ceil(diff*1.0/10);
+	 cout<<counter<<endl;
     }
     return  0;
 }
