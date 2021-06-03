@@ -29,11 +29,13 @@
     }
 	
 	int main() {
-	  int a,b;
-	  cout<<"Enter a and b"<<endl;
-	  cin>>a>>b;
-	  cout<<"Calculating GCD..."<<endl;
-	  cout<<gcd(a, b)<<endl;
-	  cout<<lcm(a,b);
+	  int k, r;
+	  cin>>k>>r;
+	  for(int i = 1; i<=10; i++) {
+		  if((k*i) % 10 == r || (k*i) % 10 == 0){
+		  cout<<i;
+		  break;
+	    }
+	  }
 	  return 0;
 	}
