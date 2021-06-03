@@ -13,26 +13,27 @@
 	}
 	
 	int gcd(int a, int b) {
-		int big = a>b ? a : b;
-		int small = a<b ? a : b;
-		int remainder = 1;
-		while(remainder != 0){
-			remainder = big%small;
-			big = small;
-			small = remainder;
-		}
-		return small;
+		int big = a > b ? a : b;
+        int small = a < b ? a : b;
+        int remainder = big % small;
+        while (remainder != 0) {
+            big = small;
+            small = remainder;
+            remainder = big % small;
+        }
+        return small;
 	}
 	
+	int lcm(int a, int b) {
+        return (a * b) / gcd(a, b);
+    }
+	
 	int main() {
-	  int n;
-	  cin >> n;
-	  // (a*b)%m = ((a%m)*(b%m))%m
-	  int result = 1;
-	  for (int i = 1; i <= n; ++i) {
-	    result = mul_modulo(result, 2, mod);
-	  }
-	  cout << mod << endl;
-	  cout << result;
+	  int a,b;
+	  cout<<"Enter a and b"<<endl;
+	  cin>>a>>b;
+	  cout<<"Calculating GCD..."<<endl;
+	  cout<<gcd(a, b)<<endl;
+	  cout<<lcm(a,b);
 	  return 0;
 	}
