@@ -29,13 +29,25 @@
     }
 	
 	int main() {
-	  int k, r;
-	  cin>>k>>r;
-	  for(int i = 1; i<=10; i++) {
-		  if((k*i) % 10 == r || (k*i) % 10 == 0){
-		  cout<<i;
-		  break;
-	    }
+	  int abcd[4] , max = 0, max_index;
+	  for(short i=0; i<4; i++){
+		  cin>>abcd[i];
+		  if(max<abcd[i]) {
+			  max = abcd[i];
+			  max_index = i;
+		  }
 	  }
+	  int x[3];
+	  for(short i = 0, j = 0; i<4; i++){
+		  if(i != max_index){
+			  x[j] = abcd[i];
+			  j++;
+			  }
+	  }
+	  int answer[3];
+	  answer[0] = (x[0] - x[1] + x[2])/2;
+	  answer[1] = (x[0] + x[1] - x[2])/2;
+	  answer[2] = (x[1] - x[0] + x[2])/2;
+	  cout<<answer[0] <<" "<<answer[1]<< " " <<answer[2];
 	  return 0;
 	}
