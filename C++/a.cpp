@@ -27,27 +27,22 @@
 	int lcm(int a, int b) {
         return (a * b) / gcd(a, b);
     }
-	
+
+
 	int main() {
-	  int abcd[4] , max = 0, max_index;
-	  for(short i=0; i<4; i++){
-		  cin>>abcd[i];
-		  if(max<abcd[i]) {
-			  max = abcd[i];
-			  max_index = i;
-		  }
-	  }
-	  int x[3];
-	  for(short i = 0, j = 0; i<4; i++){
-		  if(i != max_index){
-			  x[j] = abcd[i];
-			  j++;
+		  int abcd[4] , max = 0, max_index;
+		  for(short i=0; i<4; i++){
+			  cin>>abcd[i];
+			  if(max<abcd[i]) {
+				  max = abcd[i];
+				  max_index = i;
 			  }
-	  }
-	  int answer[3];
-	  answer[0] = (x[0] - x[1] + x[2])/2;
-	  answer[1] = (x[0] + x[1] - x[2])/2;
-	  answer[2] = (x[1] - x[0] + x[2])/2;
-	  cout<<answer[0] <<" "<<answer[1]<< " " <<answer[2];
-	  return 0;
-	}
+		  }
+			for(short i=0; i<4; i++){
+				if(i != max_index){
+					cout<< (max - abcd[i]) <<" ";
+				}
+			}
+		  return 0;
+		}
+		
