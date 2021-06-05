@@ -28,21 +28,25 @@
         return (a * b) / gcd(a, b);
     }
 
-
+// contest: Codeforces Round #244 (Div. 2), problem: (A) Police Recruits
 	int main() {
-		  int abcd[4] , max = 0, max_index;
-		  for(short i=0; i<4; i++){
-			  cin>>abcd[i];
-			  if(max<abcd[i]) {
-				  max = abcd[i];
-				  max_index = i;
+		  int n, count = 0;
+		  cin>>n;
+		  short k;
+		  int capacity = 0, cnt_untreated_cases = 0; 
+		  while(n--){
+			  cin>>k;
+			  if(k == -1){
+				  if(capacity > 0){
+					  capacity--;
+				  } else {
+					  cnt_untreated_cases++;
+				  }
+			  } else {
+				  capacity += k;
 			  }
 		  }
-			for(short i=0; i<4; i++){
-				if(i != max_index){
-					cout<< (max - abcd[i]) <<" ";
-				}
-			}
+		  cout<<cnt_untreated_cases;
 		  return 0;
 		}
 		
