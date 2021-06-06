@@ -12,6 +12,7 @@
 	  return ((a % m) + (b % m)) % m;
 	}
 	
+	// GCD using iterative approach
 	int gcd(int a, int b) {
 		int big = a > b ? a : b;
         int small = a < b ? a : b;
@@ -24,29 +25,20 @@
         return small;
 	}
 	
+	// GCD using recursive approach
+	int gcd_r(int a, int b){
+		return b == 0 ? a : gcd_r(b, a%b);
+	}
+	
 	int lcm(int a, int b) {
         return (a * b) / gcd(a, b);
     }
 
-// contest: Codeforces Round #244 (Div. 2), problem: (A) Police Recruits
+// contest: Codeforces Round #650 (Div. 3), problem: (A) Short Substrings
 	int main() {
-		  int n, count = 0;
-		  cin>>n;
-		  short k;
-		  int capacity = 0, cnt_untreated_cases = 0; 
-		  while(n--){
-			  cin>>k;
-			  if(k == -1){
-				  if(capacity > 0){
-					  capacity--;
-				  } else {
-					  cnt_untreated_cases++;
-				  }
-			  } else {
-				  capacity += k;
-			  }
-		  }
-		  cout<<cnt_untreated_cases;
+		  int a, b;
+		  cin>>a>>b;
+		  cout<<"GCD of "<<a<<" and "<<b<<" is "<<gcd_r(a,b);
 		  return 0;
 		}
 		
