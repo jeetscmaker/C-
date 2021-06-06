@@ -34,23 +34,27 @@
         return (a * b) / gcd(a, b);
     }
 /**
- * contest: Codeforces Round #392 (Div. 2), problem: (A) Holiday Of Equality
+ * contest: Codeforces Round #653 (Div. 3), problem: (A) Required Remainder
  */
 	int main() {
-		  int n; 
-		  cin>>n;
-		  int a[n];
-		  int max = 0;
-		  for(int i = 0; i<n ; i++){
-			  cin>>a[i];
-			  if(a[i] > max)
-                max = a[i];
+		  int t; cin>>t;
+		  int x, y, n;
+		  while(t--){
+			  cin >> x >> y >> n;
+			  if(n%x < y)
+			  {
+				  int k = n-x + (y - (n%x));
+				  cout<< k << endl;
+			  }
+			  else if(n%x > y)
+			  {
+				  int k =  n - ((n%x)-y); 
+				  cout<< k << endl;
+			  }
+			  else
+				  cout<< n << endl;
+			  
 		  }
-		  int sum = 0;
-        for (int i = 0; i < n; i++) {
-            sum += (max - a[i]);
-        }
-		cout<<sum;
 		  return 0;
 		}
 		
