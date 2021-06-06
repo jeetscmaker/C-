@@ -33,12 +33,24 @@
 	int lcm(int a, int b) {
         return (a * b) / gcd(a, b);
     }
-
-// contest: Codeforces Round #650 (Div. 3), problem: (A) Short Substrings
+/**
+ * contest: Codeforces Round #392 (Div. 2), problem: (A) Holiday Of Equality
+ */
 	int main() {
-		  int a, b;
-		  cin>>a>>b;
-		  cout<<"GCD of "<<a<<" and "<<b<<" is "<<gcd_r(a,b);
+		  int n; 
+		  cin>>n;
+		  int a[n];
+		  int max = 0;
+		  for(int i = 0; i<n ; i++){
+			  cin>>a[i];
+			  if(a[i] > max)
+                max = a[i];
+		  }
+		  int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += (max - a[i]);
+        }
+		cout<<sum;
 		  return 0;
 		}
 		
