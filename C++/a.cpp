@@ -33,28 +33,25 @@
 	int lcm(int a, int b) {
         return (a * b) / gcd(a, b);
     }
+	
+	bool is_not_divisible(int k, int l, int m, int n, int d){
+		if((d%k != 0) && (d%l != 0) && (d%m != 0) && (d%n != 0))
+			return true;
+		else
+			return false;
+	}
 /**
- * contest: Codeforces Round #653 (Div. 3), problem: (A) Required Remainder
+ * contest: Codeforces Round #105 (Div. 2), problem: (A) Insomnia cure
  */
 	int main() {
-		  int t; cin>>t;
-		  int x, y, n;
-		  while(t--){
-			  cin >> x >> y >> n;
-			  if(n%x < y)
-			  {
-				  int k = n-x + (y - (n%x));
-				  cout<< k << endl;
-			  }
-			  else if(n%x > y)
-			  {
-				  int k =  n - ((n%x)-y); 
-				  cout<< k << endl;
-			  }
-			  else
-				  cout<< n << endl;
-			  
-		  }
-		  return 0;
-		}
+		 int k,l,m,n,d;
+		 cin>>k>>l>>m>>n>>d;
+		 int count = 0;
+		 for(int i=1; i<=d; i++){
+			 if(is_not_divisible(k,l,m,n,i))
+				 count++;
+		 }
+		 cout<<d-count;
+		return 0;
+	}
 		
