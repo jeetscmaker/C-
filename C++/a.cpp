@@ -41,17 +41,17 @@
 			return false;
 	}
 /**
- * contest: Codeforces Round #105 (Div. 2), problem: (A) Insomnia cure
+ * contest: Codeforces Round #141 (Div. 2), problem: (A) Is your horseshoe on the other hoof?
  */
 	int main() {
-		 int k,l,m,n,d;
-		 cin>>k>>l>>m>>n>>d;
-		 int count = 0;
-		 for(int i=1; i<=d; i++){
-			 if(is_not_divisible(k,l,m,n,i))
-				 count++;
-		 }
-		 cout<<d-count;
+		 int k,l,m,n;
+		 cin>>k>>l>>m>>n;
+		 set<int> set;
+		 set.insert(k);
+		 set.insert(l);
+		 set.insert(m);
+		 set.insert(n);
+		 cout<< (4-set.size());
 		return 0;
 	}
 		
