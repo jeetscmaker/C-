@@ -1,31 +1,31 @@
-	#include <bits/stdc++.h>
-
-	using namespace std;
-/**
- * contest: Codeforces Round #322 (Div. 2), problem: (A) Vasya the Hipster
- */
-	int main() {
-		 int n;
-		 cin>>n;
-		 int a[n];
-		 int count = 0;
-		 for(int i = 0; i < n; i++){
-			 cin>>a[i];
-		 }
-		 int min = a[0], max = a[0];
-		 for(int i = 1; i < n; i++){
-			 if(a[i] < min){
-				 count++;
-				 min = a[i];
-			 }
-			else if(a[i] > max){
-				 count++;
-				 max = a[i];
-			 }
-			 else {}
-		 }
-		 cout<<count;
-		 return 0;	
+#include <bits/stdc++.h>
+using namespace std;
+/*
+* contest: Codeforces Round #101 (Div. 2), problem: (A) Amusing Joke
+*/
+int main(){
+	string a,b,c;
+	cin>>a>>b>>c;
+	string d = a+b;
+	if(d.length() != c.length()){
+		cout<<"NO";
+		return 0;
 	}
+	sort(d.begin(), d.end());
+	sort(c.begin(), c.end());
+	bool is_equal = true;
+	for(int i = 0; i<d.length(); i++){
+		if(d[i] != c[i]){
+			is_equal = false;
+			break;
+		}
+	}
+	if(is_equal)
+		cout<<"YES";
+	else
+		cout<<"NO";
+	return 0;
+}
+
 		
 	
