@@ -1,29 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
-const long MIN = 1e9;
-// contest: Codeforces Round #661 (Div. 3), problem: (B) Gifts Fixing
+ 
+ /* contest: Codeforces Round #246 (Div. 2), problem: (A) Choosing Teams */
+
+ const short MAX_PARTICIPATION = 5;
+
 int main() {
-    int t; cin>>t;
-    while(t--){
-        int n; cin>>n;
-        long a[n], b[n];
-        long am = MIN, bm = MIN;
-        for(int i=0; i<n; i++){
-            cin>>a[i];
-            if(am > a[i])
-				am = a[i];
-        }
-         for(int i=0; i<n; i++){
-            cin>>b[i];
-            if(bm > b[i])
-				bm = b[i];
-        }
-        long long sum = 0;
-        for(int i=0; i<n; i++){
-            sum = (long long)sum + max((a[i]-am), (b[i]-bm));
-        }
-        cout<<sum<<endl;
-        
-    }
-    return 0;
+	int n, k;
+	cin >> n >> k;
+	int a[n];
+	short counter = 0, no_of_teams = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		cin >> a[i];
+		if ((a[i] + k) > MAX_PARTICIPATION)
+			continue;
+		else
+		{
+			counter++;
+			if (counter == 3)
+			{
+				no_of_teams++;
+				counter = 0;
+			}
+		}
+	}
+	cout << no_of_teams;
+	return 0;
 }
