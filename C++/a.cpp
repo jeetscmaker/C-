@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 const long MIN = 1e9;
-
+// contest: Codeforces Round #661 (Div. 3), problem: (B) Gifts Fixing
 int main() {
     int t; cin>>t;
     while(t--){
@@ -20,7 +20,7 @@ int main() {
         }
         long long sum = 0;
         for(int i=0; i<n; i++){
-            sum = (long long)sum + (a[i]-am) + (b[i]-bm);
+            sum = (long long)sum + max((a[i]-am), (b[i]-bm));
         }
         cout<<sum<<endl;
         
