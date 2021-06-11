@@ -1,30 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
- /* contest: Codeforces Round #246 (Div. 2), problem: (A) Choosing Teams */
 
- const short MAX_PARTICIPATION = 5;
+// contest: Codeforces Round #279 (Div. 2), problem: (A) Team Olympiad
 
 int main() {
-	int n, k;
-	cin >> n >> k;
-	int a[n];
-	short counter = 0, no_of_teams = 0;
-	for (int i = 0; i < n; ++i)
+	vector<short> vt1;
+	vector<short> vt2;
+	vector<short> vt3;
+	int n;
+	cin >> n;
+	for (int i = 1; i <= n; ++i)
 	{
-		cin >> a[i];
-		if ((a[i] + k) > MAX_PARTICIPATION)
-			continue;
+		short t;
+		cin >> t;
+		if(t == 1)
+			vt1.push_back(i);
+
+		else if(t == 2)
+			vt2.push_back(i);
 		else
-		{
-			counter++;
-			if (counter == 3)
-			{
-				no_of_teams++;
-				counter = 0;
-			}
-		}
+			vt3.push_back(i);
 	}
-	cout << no_of_teams;
-	return 0;
+	int m = min(min(vt1.size(), vt2.size()), vt3.size());
+	cout << m << endl;
+	for (int i = 0; i < m; ++i)
+	{
+		cout << vt1[i] << " " << vt2[i] << " " << vt3[i] << endl;
+	}
 }
