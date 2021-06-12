@@ -1,33 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 /**
- * contest: Codeforces Round #650 (Div. 3), problem: (B) Even Array
- */ 
+ * contest: Codeforces Round #365 (Div. 2), problem: (A) Mishka and Game
+ * */
 int main() {
-    int t;
-    cin >> t;
-     for (int i = 0; i < t; i++) {
-            short n; cin>>n;
-            if (n < 2) {
-                cout<<-1<<endl;
-                continue;
-            }
-            int a[n];
-            short count_even = 0;
-            short count_odd = 0;
-            for (int j = 0; j < n; j++) {
-                cin>>a[j];
-            }
-            for (int j = 0; j < n; j++) {
-                if (j % 2 == 0 && a[j] % 2 != 0)
-                    count_even++;
-                if (j % 2 == 1 && a[j] % 2 != 1)
-                    count_odd++;
-            }
-            if (count_even == count_odd)
-                cout<<count_even<<endl;
-            else
-                cout<<-1<<endl;
-        }
-    return 0;
+	int n;
+	cin>>n;
+	int m[n], c[n];
+	int mishka_wins = 0, chris_wins = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		cin>>m[i]>>c[i];
+		if (m[i] > c[i])
+		{
+			mishka_wins++;
+		}
+		else if (c[i] > m[i])
+		{
+			chris_wins++;
+		}
+		else{
+			// do nothing, it's a draw.
+		}
+	}
+	if (mishka_wins > chris_wins)
+			cout<<"Mishka";
+		else if(chris_wins > mishka_wins)
+			cout<<"Chris";
+		else
+			cout<<"Friendship is magic!^^";
+	return 0;
 }
