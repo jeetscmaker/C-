@@ -1,30 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-// contest: Codeforces Round #279 (Div. 2), problem: (A) Team Olympiad
-
+// contest: Codeforces Round #725 (Div. 3), problem: (B) Friends and Candies
 int main() {
-	vector<short> vt1;
-	vector<short> vt2;
-	vector<short> vt3;
-	int n;
-	cin >> n;
-	for (int i = 1; i <= n; ++i)
-	{
-		short t;
-		cin >> t;
-		if(t == 1)
-			vt1.push_back(i);
-
-		else if(t == 2)
-			vt2.push_back(i);
-		else
-			vt3.push_back(i);
-	}
-	int m = min(min(vt1.size(), vt2.size()), vt3.size());
-	cout << m << endl;
-	for (int i = 0; i < m; ++i)
-	{
-		cout << vt1[i] << " " << vt2[i] << " " << vt3[i] << endl;
-	}
+    int t; cin>>t;
+    while(t--){
+        int n; cin>>n;
+        int a[n];
+        for(int i=0; i<n; i++){
+            cin>>a[i];
+        }
+        int sum = 0;
+        for(int i=0; i<n; i++){
+            sum += a[i];
+        }
+        if(sum % n != 0){
+            cout<<"-1"<<endl;
+        } else {
+            int avg = sum/n;
+            int k = 0;
+            for(int i=0; i<n; i++){
+                if(a[i] > avg)
+                    k++;
+            }
+            cout<<k<<endl;
+        }
+    }
+    return 0;
 }
