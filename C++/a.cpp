@@ -1,29 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
-// contest: Codeforces Round #725 (Div. 3), problem: (B) Friends and Candies
+// contest: Codeforces Round #644 (Div. 3), problem: (A) Minimal Square
 int main() {
-    int t; cin>>t;
+    int t;
+    cin >> t;
     while(t--){
-        int n; cin>>n;
-        int a[n];
-        for(int i=0; i<n; i++){
-            cin>>a[i];
-        }
-        int sum = 0;
-        for(int i=0; i<n; i++){
-            sum += a[i];
-        }
-        if(sum % n != 0){
-            cout<<"-1"<<endl;
-        } else {
-            int avg = sum/n;
-            int k = 0;
-            for(int i=0; i<n; i++){
-                if(a[i] > avg)
-                    k++;
-            }
-            cout<<k<<endl;
-        }
+        short a, b;
+    cin >> a >> b;
+    short length = max(a,b);
+    short breadth = min(a,b);
+    if(length > 2*breadth)
+        cout << ((int)length*length) << endl;
+    else
+        cout << ((int)4*breadth*breadth) << endl;
     }
     return 0;
 }
