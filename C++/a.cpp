@@ -1,16 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 /**
- * contest: Codeforces Round #638 (Div. 2), problem: (A) Phoenix and Balance
+ * contest: Codeforces Round #644 (Div. 3), problem: (B) Honest Coach
  * */
 int main() {
 	int t;
 	cin>>t;
 	while(t--){
-		short n;
+		int n;
 		cin>>n;
-		long long res = pow(2, (n/2)+1) - 2;
-		cout<<res<<endl;
+		int a[n];
+		for (int i = 0; i < n; ++i)
+		{
+			cin>>a[i];
+		}
+		sort(a, a+n);
+		int min = 100000;
+		for (int i = 1; i < n; ++i)
+		{
+			if((a[i] - a[i-1]) < min){
+				min = a[i] - a[i-1];
+			}
+		}
+		cout<<min<<endl;
 	}
 	return 0;
 }
