@@ -1,31 +1,17 @@
 #include <iostream>
 using namespace std;
-// counting sort  implementation
-int main() {
-	int a[] = {1, 3, 6, 9, 9, 3, 5, 9};
-    int max = 0;
-    for(int i = 0; i<(sizeof(a)/sizeof(int)); i++){
-        max = max < a[i] ? a[i] : max;
+// contest: Codeforces Round #388 (Div. 2), problem: (A) Bachgold Problem
+int main(){
+    int n;
+    cin >> n;
+    cout << n/2 << "\n";
+    if(n%2 == 0){
+        for(int i = 0; i<(n/2); i++)
+            cout<<2<<" ";
+    } else{
+        for(int i = 0; i<(n/2 - 1); i++)
+            cout<<2<<" ";
+        cout<<3;
     }
-    // Declaring a book_keeping_array of size one more 
-    // than the maximum element of the given array.
-	int book_keeping_array[max+1];
-	for(int i = 0; i < (max+1); i++){
-		book_keeping_array[i] = 0;
-	}
-	for(int i = 0; i<(sizeof(a)/sizeof(int)); i++){
-        book_keeping_array[a[i]]++;
-	}
-    int s, k = 0;
-    for(int i = 0; i<max+1; i++){
-       s = book_keeping_array[i];
-       for(int j = 0; j<s; j++){
-           a[k] = i;
-           k++;
-       }
-    }
-    for(auto element : a){
-        cout << element << " ";
-    }
-	return 0;
+    return 0;
 }
