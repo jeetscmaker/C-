@@ -1,17 +1,32 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-// contest: Codeforces Round #388 (Div. 2), problem: (A) Bachgold Problem
-int main(){
-    int n;
-    cin >> n;
-    cout << n/2 << "\n";
-    if(n%2 == 0){
-        for(int i = 0; i<(n/2); i++)
-            cout<<2<<" ";
-    } else{
-        for(int i = 0; i<(n/2 - 1); i++)
-            cout<<2<<" ";
-        cout<<3;
+
+// contest: Codeforces Round #656 (Div. 3), problem: (B) Restore the Permutation by Merger
+int main() {
+    int t;
+    cin >> t;
+    while(t--){
+    	int n;
+    	cin >> n;
+    	std::vector<int> v;
+    	for (int i = 0; i < 2*n; ++i)
+    	{
+    		int element;
+    		cin >> element;
+    		v.push_back(element);
+    	}
+    	vector<int> res;
+    	for (int k = 0; k < n; k++)
+    	{
+    		int item = v[0];
+    		res.push_back(item);
+    		v.erase(std::remove(v.begin(), v.end(), item), v.end());
+    	}
+    	for (std::vector<int>::iterator i = res.begin(); i != res.end(); ++i)
+    	{
+    		cout << *i << " ";
+    	}
+    	cout << "\n";
     }
-    return 0;
+	return 0;
 }
