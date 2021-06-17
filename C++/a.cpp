@@ -1,29 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-// contest: Codeforces Round #247 (Div. 2), problem: (A) Black Square
+// contest: Codeforces Round #624 (Div. 3), problem: (A) Add Odd or Subtract Even
+// choose any positive odd integer x and replace a with a+x.
+// choose any positive even integer y and replace a with a-y.
+// Obtain b from a in minimum number of such operations.
+bool is_even(long n) {
+    return (n%2 == 0);
+}
 int main() {
-    int a1, a2, a3, a4;
-    cin >> a1 >> a2 >> a3 >> a4;
-    string s;
-    cin >> s;
-    int sum = 0;
-    for(int i = 0; s[i] != '\0'; i++){
-        switch(s[i]){
-            case '1' :
-                sum += a1;
-                break;
-            case '2' :
-                sum += a2;
-                break;
-            case '3' :
-                sum += a3;
-                break;
-            case '4' :
-                sum += a4;
-                break;
-        }
+    int t;
+    cin >> t;
+    while(t--) {
+        long a, b;
+        cin >> a >> b;
+        if(a > b){
+            if(is_even(a - b))
+                cout << 1 << endl;
+            else 
+                cout << 2 << endl;
+        } else if(b > a) {
+            if(is_even(b - a))
+                cout << 2 << endl;
+            else 
+                cout << 1 << endl;
+        } else
+            cout << 0 << endl;
+        
     }
-    cout << sum;
 	return 0;
 }
