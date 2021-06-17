@@ -1,32 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// contest: Codeforces Round #656 (Div. 3), problem: (B) Restore the Permutation by Merger
+// contest: Codeforces Round #247 (Div. 2), problem: (A) Black Square
 int main() {
-    int t;
-    cin >> t;
-    while(t--){
-    	int n;
-    	cin >> n;
-    	std::vector<int> v;
-    	for (int i = 0; i < 2*n; ++i)
-    	{
-    		int element;
-    		cin >> element;
-    		v.push_back(element);
-    	}
-    	vector<int> res;
-    	for (int k = 0; k < n; k++)
-    	{
-    		int item = v[0];
-    		res.push_back(item);
-    		v.erase(std::remove(v.begin(), v.end(), item), v.end());
-    	}
-    	for (std::vector<int>::iterator i = res.begin(); i != res.end(); ++i)
-    	{
-    		cout << *i << " ";
-    	}
-    	cout << "\n";
+    int a1, a2, a3, a4;
+    cin >> a1 >> a2 >> a3 >> a4;
+    string s;
+    cin >> s;
+    int sum = 0;
+    for(int i = 0; s[i] != '\0'; i++){
+        switch(s[i]){
+            case '1' :
+                sum += a1;
+                break;
+            case '2' :
+                sum += a2;
+                break;
+            case '3' :
+                sum += a3;
+                break;
+            case '4' :
+                sum += a4;
+                break;
+        }
     }
+    cout << sum;
 	return 0;
 }
