@@ -1,37 +1,38 @@
 #include <bits/stdc++.h>
-using namespace std;
-// contest: Codeforces Round #713 (Div. 3), problem: (A) Spy Detected!
 
-int main() {
-    short t;
+using namespace std;
+// contest: Codeforces Round #713 (Div. 3), problem: (B) Almost Rectangle
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+int main() {    
+    int t;
     cin >> t;
-    while(t--){
-        short n;
+    forn(tt, t) {
+        int n;
         cin >> n;
-        short a[n];
-        int sum = 0;
-        for(short i = 0; i<n; i++){
-            cin >> a[i];
-            sum += a[i];
+        vector<string> f(n);
+        vector<pair<int,int>> p;
+        forn(i, n) {
+            cin >> f[i];
+            forn(j, n)
+                if (f[i][j] == '*')
+                    p.push_back({i, j});
         }
-        if((a[0] == a[1]) && (a[1] == a[2])){
-           short d = (sum - (n-1)*a[0]);
-           for(short i = 0; i<n; i++){
-            if (a[i] == d)
-            {
-                cout << i+1 << "\n";
-                break;
-            }
-           }
-        }
-        else{
-        if(a[0] == a[1])
-            cout << 3 << "\n";
-        else if(a[1] == a[2])
-            cout << 1 << "\n";
-        else
-            cout << 2 << "\n";
-        } 
+
+        p.push_back(p[0]);
+        p.push_back(p[1]);
+        if (p[0].first == p[1].first) {
+            p[2].first = (p[2].first + 1) % n;
+            p[3].first = (p[3].first + 1) % n;
+        } else if (p[0].second == p[1].second) {
+            p[2].second = (p[2].second + 1) % n;
+            p[3].second = (p[3].second + 1) % n;
+        } else
+            swap(p[2].first, p[3].first);
+
+        f[p[2].first][p[2].second] = '*';
+        f[p[3].first][p[3].second] = '*';
+        forn(i, n)
+            cout << f[i] << endl;
     }
-    return 0;
 }
