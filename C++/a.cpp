@@ -1,22 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
-// contest: Codeforces Round #289 (Div. 2, ACM ICPC Rules), problem: (A) Maximum in Table
-bool is_even(long n) {
-    return (n%2 == 0);
-}
+// contest: Codeforces Round #713 (Div. 3), problem: (A) Spy Detected!
+
 int main() {
-    short n;
-    cin >> n;
-    int a[n][n];
-    for(short i = 0; i<n; i++){
-        a[0][i] = 1;
-        a[i][0] = 1;
-    }
-    for(short i = 1; i<n; i++){
-        for(short j = 1; j<n; j++){
-            a[i][j] = a[i-1][j] + a[i][j-1];
+    short t;
+    cin >> t;
+    while(t--){
+        short n;
+        cin >> n;
+        short a[n];
+        int sum = 0;
+        for(short i = 0; i<n; i++){
+            cin >> a[i];
+            sum += a[i];
         }
+        if((a[0] == a[1]) && (a[1] == a[2])){
+           short d = (sum - (n-1)*a[0]);
+           for(short i = 0; i<n; i++){
+            if (a[i] == d)
+            {
+                cout << i+1 << "\n";
+                break;
+            }
+           }
+        }
+        else{
+        if(a[0] == a[1])
+            cout << 3 << "\n";
+        else if(a[1] == a[2])
+            cout << 1 << "\n";
+        else
+            cout << 2 << "\n";
+        } 
     }
-    cout << a[n-1][n-1];
-	return 0;
+    return 0;
 }
