@@ -1,25 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// contest: Codeforces Round #368 (Div. 2), problem: (A) Brain's Photos
+// contest: Codeforces Round #615 (Div. 3), problem: (A) Collecting Coins
  
 int main() {    
-    short n,m;
-    cin >> n >> m;
-    char a[n][m];
-    bool is_black_white = true;
-    for(short i = 0; i<n; i++){
-        for(short j = 0; j<m; j++){
-            cin >> a[i][j];
-            if(a[i][j] != 'B' && a[i][j] != 'W' && a[i][j] != 'G'){
-                is_black_white = false;
-                break;
-            }
-        }
+    long a, b, c, n;
+    int t;
+    cin >> t;
+    while(t--) {
+       int a[3], n;
+		cin >> a[0] >> a[1] >> a[2] >> n;
+		sort(a, a + 3);
+		n -= 2 * a[2] - a[1] - a[0];
+		if (n < 0 || n % 3 != 0) {
+			cout << "NO" << endl;
+		} else {
+			cout << "YES" << endl;
+		}
     }
-    if(is_black_white)
-        cout << "#Black&White";
-    else 
-        cout << "#Color";
     return 0;
 }
