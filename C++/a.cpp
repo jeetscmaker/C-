@@ -1,11 +1,32 @@
-#include <iostream>
- 
+#include <bits/stdc++.h>
 using namespace std;
- // contest: April Fools Day Contest 2021, problem: (B) DMCA
- // source of formula is: https://en.wikipedia.org/wiki/Digital_root
+
+// contest: Codeforces Round #686 (Div. 3), problem: (A) Special Permutation
 int main() {
-  int x;
-  cin >> x;
-  cout << (x - 1) % 9 + 1;
-  return 0;
+   int t;
+   cin >> t;
+   while(t--){
+      int n;
+      cin >> n;
+      if (n%2 == 0) 
+      {
+         for (int i = n; i >= 1; --i)
+         {
+            cout << i << " ";
+         }
+      } else {
+         for (int i = n; i >= 1; --i)
+         {
+            if (i == (n/2)+1)
+            {
+               cout << (i-1) << " " << i << " ";
+               --i;
+            }
+            else
+               cout << i << " ";
+         }
+      }
+      cout << endl;
+   }
+    return 0;
 }
