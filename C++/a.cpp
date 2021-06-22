@@ -1,22 +1,10 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-// contest: Codeforces Round #615 (Div. 3), problem: (A) Collecting Coins
+#include <iostream>
  
-int main() {    
-    long a, b, c, n;
-    int t;
-    cin >> t;
-    while(t--) {
-       int a[3], n;
-		cin >> a[0] >> a[1] >> a[2] >> n;
-		sort(a, a + 3);
-		n -= 2 * a[2] - a[1] - a[0];
-		if (n < 0 || n % 3 != 0) {
-			cout << "NO" << endl;
-		} else {
-			cout << "YES" << endl;
-		}
-    }
-    return 0;
+using namespace std;
+ // contest: April Fools Day Contest 2021, problem: (B) DMCA
+int main() {
+  int x;
+  cin >> x;
+  cout << (x - 1) % 9 + 1;
+  return 0;
 }
