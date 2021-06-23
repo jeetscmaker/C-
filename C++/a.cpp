@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// contest: Codeforces Round #223 (Div. 2), problem: (A) Sereja and Dima
+// contest: Codeforces Round #223 (Div. 2), problem: (A) Sereja and Dima.
+//          Sereja starts first.
 
 int main() {
     int n;
