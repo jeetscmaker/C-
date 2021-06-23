@@ -1,33 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// contest: Codeforces Round #693 (Div. 3), problem: (B) Fair Division
+// contest: Codeforces Round #223 (Div. 2), problem: (A) Sereja and Dima
+
 int main() {
-   int t;
-   cin >> t;
-   while(t--){
-      int n;
-  cin >> n;
-  int cnt1 = 0, cnt2 = 0;
-  for (int i = 0; i < n; i++) {
-    int c;
-    cin >> c;
-    if (c == 1) {
-      cnt1++;
-    } else {
-      cnt2++;
+    int n;
+    cin >> n;
+    int a[n];
+    for(int i = 0; i<n; i++) {
+        cin >> a[i];
     }
-  }
-  if ((cnt1 + 2 * cnt2) % 2 != 0) {
-    cout << "NO\n";
-  } else {
-    int sum = (cnt1 + 2 * cnt2) / 2;
-    if (sum % 2 == 0 || (sum % 2 == 1 && cnt1 != 0)) {
-      cout << "YES\n";
-    } else {
-      cout << "NO\n";
-    }
-  }
-   }
+    int s_count = 0, d_count = 0;
+    int i = 0, j = n-1;
+    while (i < j) {
+            // 4 1 2 10
+            if (a[i] > a[j]) {
+                s_count += a[i];
+                i++;
+            } else {
+                s_count += a[j];
+                j--;
+            }
+            // Dima's points calculation.
+            if (a[i] > a[j]) {
+                d_count += a[i];
+                i++;
+            } else {
+                d_count += a[j];
+                j--;
+            }
+        }
+        if (n % 2 != 0) // n is odd number
+        {
+            // then i must be equal to j after the loop terminates. And every odd time it's Sereja's turn
+            // to collect a point. Therefore s_count should be updated with the latest value of i or j.
+            s_count += a[i];
+        }
+    cout << s_count << " " << d_count;
     return 0;
 }
