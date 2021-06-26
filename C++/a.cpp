@@ -1,27 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
-// codeforces contest: Hello 2019, problem: (A) Gennady and a Card Game
+// contest: Codeforces Round #611 (Div. 3), problem: (A) Minutes Before the New Year
 int main()
 {
-   string s[6];
-   for (int i = 0; i < 6; ++i)
-   {
-      cin >> s[i];
+   short t;
+   cin >> t;
+   while(t--){
+       short h, m;
+       cin>>h>>m;
+       cout << (((23-h)*60) + (60-m)) << endl;
    }
-   bool can_play = false;
-   for (int i = 1; i <= 5; ++i)
-   {
-      if (s[0][0] == s[i][0] || s[0][1] == s[i][1])
-      {
-         can_play = true;
-         break;
-      }
-   }
-   if (can_play)
-   {
-      cout << "YES";
-   }
-   else
-      cout << "NO";
    return 0;
 }
