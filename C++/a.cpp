@@ -1,14 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
-// contest: Codeforces Round #611 (Div. 3), problem: (A) Minutes Before the New Year
+// contest: Codeforces Round #722 (Div. 2), problem: (A) Eshag Loves Big Arrays
 int main()
 {
-   short t;
-   cin >> t;
-   while(t--){
-       short h, m;
-       cin>>h>>m;
-       cout << (((23-h)*60) + (60-m)) << endl;
-   }
+  int t;
+  cin >> t;
+  for (int tt = 0; tt < t; ++tt)
+  {
+     int n;
+     cin >> n;
+     int a[n];
+     int min = 1e5;
+     for (int i = 0; i < n; ++i)
+     {
+        cin >> a[i];
+        if (a[i] < min)
+        {
+           min = a[i];
+        }
+     }
+     int count = 0;
+     for (int i = 0; i < n; ++i)
+     {
+        if (a[i] == min)
+        {
+           count++;
+        }
+     }
+     cout << n-count << endl;
+  }
    return 0;
 }
