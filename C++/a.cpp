@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-// contest: Codeforces Round #722 (Div. 2), problem: (A) Eshag Loves Big Arrays
+// contest: Codeforces Round #655 (Div. 2), problem: (A) Omkar and Completion
 int main()
 {
   int t;
@@ -9,25 +9,11 @@ int main()
   {
      int n;
      cin >> n;
-     int a[n];
-     int min = 1e5;
      for (int i = 0; i < n; ++i)
      {
-        cin >> a[i];
-        if (a[i] < min)
-        {
-           min = a[i];
-        }
+        cout << 1 << " ";
      }
-     int count = 0;
-     for (int i = 0; i < n; ++i)
-     {
-        if (a[i] == min)
-        {
-           count++;
-        }
-     }
-     cout << n-count << endl;
+     cout << "\n";
   }
    return 0;
 }
