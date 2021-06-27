@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-// contest: Codeforces Round #655 (Div. 2), problem: (A) Omkar and Completion
+// contest: Codeforces Round #473 (Div. 2), problem: (A) Mahmoud and Ehab and the even-odd game
 int main()
 {
   int t;
