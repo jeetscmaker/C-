@@ -1,19 +1,25 @@
+// contest: Codeforces Round #719 (Div. 3), problem: (B) Ordinary Numbers
+
 #include <bits/stdc++.h>
 using namespace std;
-// contest: Codeforces Round #473 (Div. 2), problem: (A) Mahmoud and Ehab and the even-odd game
-int main()
-{
-  int t;
-  cin >> t;
-  for (int tt = 0; tt < t; ++tt)
-  {
-     int n;
-     cin >> n;
-     for (int i = 0; i < n; ++i)
-     {
-        cout << 1 << " ";
-     }
-     cout << "\n";
-  }
-   return 0;
+
+using ll = long long;
+int main() {
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; ++i)
+    {
+      int n;
+      cin >> n;
+      int res = 0;
+      for (ll pw = 1; pw <= n; pw = pw * 10 + 1) {
+        for (int d = 1; d <= 9;  d++) {
+          if (pw * d <= n) {
+            res++;
+          }
+        }
+      }
+      cout << res << endl;
+    }
+    return 0;
 }
