@@ -1,25 +1,19 @@
-// contest: Codeforces Round #719 (Div. 3), problem: (B) Ordinary Numbers
-
 #include <bits/stdc++.h>
-using namespace std;
 
-using ll = long long;
-int main() {
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; ++i)
+using namespace std;
+// contest: Codeforces Beta Round #9 (Div. 2 Only), problem: (A) Die Roll
+int main(){
+    short Y, W;
+    cin >> Y >> W;
+    int ma = max(Y, W);
+    int winningPoint = 7-ma;
+    if (6%winningPoint == 0)
     {
-      int n;
-      cin >> n;
-      int res = 0;
-      for (ll pw = 1; pw <= n; pw = pw * 10 + 1) {
-        for (int d = 1; d <= 9;  d++) {
-          if (pw * d <= n) {
-            res++;
-          }
-        }
-      }
-      cout << res << endl;
+      cout << 1 <<"/"<<(6/winningPoint);
     }
+    else if(winningPoint == 4)
+      cout << 2 <<"/"<<3;
+    else
+      cout << winningPoint <<"/"<<6;
     return 0;
 }
