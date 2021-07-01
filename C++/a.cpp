@@ -1,19 +1,27 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-// contest: Codeforces Beta Round #9 (Div. 2 Only), problem: (A) Die Roll
+// contest: Educational Codeforces Round 102 (Rated for Div. 2), problem: (A) Replacing Elements
 int main(){
-    short Y, W;
-    cin >> Y >> W;
-    int ma = max(Y, W);
-    int winningPoint = 7-ma;
-    if (6%winningPoint == 0)
-    {
-      cout << 1 <<"/"<<(6/winningPoint);
+    int t;
+    cin>>t;
+    
+    while(t--){
+      short n, d;
+      bool possible = false;
+      cin >> n >> d;
+      short num[n];
+      for (int i = 0; i < n; ++i)
+      {
+        cin >> num[i];
+      }
+      sort(num, num+n);
+      if(num[n-1] <= d) possible = true;
+      else if(num[0]+num[1] <= d) possible = true;
+      if(possible) 
+        cout << "YES" << "\n";
+      else
+        cout << "NO" << "\n";
     }
-    else if(winningPoint == 4)
-      cout << 2 <<"/"<<3;
-    else
-      cout << winningPoint <<"/"<<6;
     return 0;
 }
