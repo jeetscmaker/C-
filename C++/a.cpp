@@ -1,18 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
-// contest: Educational Codeforces Round 110 (Rated for Div. 2), problem: (A) Fair Playoff
+
+//  Codeforces Beta Round #32 (Div. 2) B. Borze code.
+
 int main() {
-	int t;
-	cin >> t;
-	while(t--){
-		short s1,s2,s3,s4;
-		cin >> s1 >> s2 >> s3 >> s4;
-		if (min(s1,s2) > max(s3,s4) || max(s1,s2) < min(s3,s4))
-		{
-			cout << "NO" << endl;
-		} 
-		else
-			cout << "YES" << endl;
-	}
-	return 0;
-} 
+  string s;
+  cin >> s;
+  string s1 = "";
+  for (int i = 0; s[i] != '\0'; )
+  {
+    if (s[i] == '-')
+    {
+      if (i+1<s.length())
+      {
+        if (s[i+1] == '.')
+        {
+          s1 += "1";
+          i = i+2;
+        }
+        else if(s[i+1] == '-')
+        {
+          s1 += "2";
+          i = i+2;
+        }
+      }
+    }
+    else {
+      s1 += "0";
+      i++;
+    }
+  }
+  cout << s1;
+  return 0;
+}
