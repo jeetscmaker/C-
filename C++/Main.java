@@ -1,26 +1,48 @@
 import java.util.*;
+import java.util.Map.Entry;
 
 // @author jeetscmaker
-// contest: Codeforces Round #379 (Div. 2), problem: (B) Anton and Digits
+// contest: Codeforces Round #686 (Div. 3), problem: (B) Unique Bid Auction
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int k2, k3, k5, k6;
-		k2 = sc.nextInt();
-		k3 = sc.nextInt();
-		k5 = sc.nextInt();
-		k6 = sc.nextInt();
-
-		// make maximum 256, then 32.
-		// The maximum number of 256 possible = min(k2, k5, k6);
-		int max256 = Math.min(k2, Math.min(k5, k6));
-
-		// remaining k2 we can use in making 32;
-		int max32 = Math.min(k3, k2 - max256);
-
-		int sum = max256 * 256 + max32 * 32;
-		System.out.println(sum);
+		int t = sc.nextInt();
+		TreeMap<Integer, Integer> map = new TreeMap<>();
+		while (t-- > 0) {
+			int n = sc.nextInt();
+			int[] a = new int[n];
+			for (int i = 0; i < n; i++) {
+				a[i] = sc.nextInt();
+				if (map.containsKey(a[i])) {
+					map.put(a[i], map.get(a[i]) + 1);
+				} else {
+					map.put(a[i], 1);
+				}
+			}
+			boolean isAvailable = false;
+			int key = -1;
+			for (Entry<Integer, Integer> entry : map.entrySet()) {
+				if (entry.getValue() == 1) {
+					isAvailable = true;
+					key = entry.getKey();
+					break;
+				}
+			}
+			int index = 0;
+			if (isAvailable) {
+				for (int i = 0; i < n; i++) {
+					if (a[i] == key) {
+						index = i + 1;
+						break;
+					}
+				}
+				System.out.println(index);
+			} else {
+				System.out.println(-1);
+			}
+			map.clear();
+		}
 		sc.close();
 	}
 }
