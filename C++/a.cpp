@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Codeforces Round #690 (Div. 3) B. Last Year's Substring
+// contest: Educational Codeforces Round 83 (Rated for Div. 2), problem: (A) Two Regular Polygons
 
 int gcd(int a, int b) {
 	return b == 0 ? a : gcd(b, a%b);
@@ -11,16 +11,13 @@ int main() {
 	int t;
 	cin >> t;
 	while (t--) {
-		int n;
-		cin >> n;
-		string s;
-		cin >> s;
-		if(s[0] == '2' && s[n-1] == '0' && s[n-2] == '2' && s[n-3] == '0'
-			|| s[0] == '2' && s[1] == '0' && s[n-1] == '0' && s[n-2] == '2'
-			|| s[0] == '2' && s[1] == '0' && s[2] == '2' && s[n-1] == '0'
-			|| s[0] == '2' && s[1] == '0' && s[2] == '2' && s[3] == '0'
-			|| s[n-1] == '0' && s[n-2] == '2' && s[n-3] == '0' && s[n-4] == '2'
-		)
+		short n,m;
+		cin >> n >> m;
+		if(n<6) {
+			cout << "NO" << endl;
+			continue;
+		}
+		if(n%m == 0)
 			cout << "YES" << endl;
 		else
 			cout << "NO" << endl;
