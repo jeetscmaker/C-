@@ -1,21 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-// Codeforces Round #620 (Div. 2) A. Two Rabbits
+// contest: Educational Codeforces Round 109 (Rated for Div. 2), problem: (A) Potion-making
+//GCD function
+int gcd(int a, int b) {
+    return b == 0 ? a : gcd(b, a%b);
+}
 
 int main() {
     int t;
     cin >> t;
-    long long x,y,a,b,diff,divisor;
+    int k;
     while (t--) {
-        
-        cin >> x >> y >> a >> b;
-        diff = y - x;
-        divisor = a+b;
-        if(diff%divisor == 0)
-            cout << (diff/divisor) << endl;
-        else
-            cout << -1 << endl;
+        cin >> k;
+        cout << 100 / gcd(100, k) << endl;
     }
     return 0;
 }
