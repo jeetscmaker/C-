@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-// contest: Educational Codeforces Round 109 (Rated for Div. 2), problem: (A) Potion-making
-//GCD function
+
+// contest: Codeforces Round #663 (Div. 2), problem: (B) Fix You
+
 int gcd(int a, int b) {
     return b == 0 ? a : gcd(b, a%b);
 }
@@ -9,10 +10,22 @@ int gcd(int a, int b) {
 int main() {
     int t;
     cin >> t;
-    int k;
+    int n, m;
     while (t--) {
-        cin >> k;
-        cout << 100 / gcd(100, k) << endl;
+        cin >> n >> m;
+        int ans = 0;
+        for(int i = 1; i <= n; i++) {
+            for(int j = 1; j <= m; j++){
+                char ch;
+                cin >> ch;
+                if(ch == 'C')continue;
+                if(i == n and ch == 'D')
+                    ans++;
+                if(j == m and ch == 'R')
+                    ans++;
+            }
+        }
+        cout << ans << endl;
     }
     return 0;
 }
