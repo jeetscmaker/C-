@@ -8,21 +8,17 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int t;
+    int n;
+    cin >> n;
+    string t;
     cin >> t;
-    while(t--) {
-        int n;
-        cin >> n;
-        int64_t a[2*n];
-        for(int i = 0; i<2*n ; i++) {
-            cin >> a[i];
-        }
-        sort(a, a+(2*n));
-        for(int i=0, j=2*n - 1; i<j ; i++, j--){
-            cout << a[i] << ' ' << a[j] << ' ';
-        }
-        cout << '\n';
+    string required = "";
+    int j = 0;
+    for(int i = 0; i<n; i = i+j) {
+        required += t[i];
+        j++;
     }
+    cout << required;
     return 0;
 }
 
