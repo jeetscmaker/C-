@@ -3,7 +3,7 @@ using namespace std;
 
 class complex{
 	int d = 10;
-	static int count;
+	static int count; // by default this will be initialized to zero.
 public:
 	void display(void);
 	static void show(void);
